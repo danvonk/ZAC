@@ -42,7 +42,7 @@
                 "location": [5, 16]
             }],
         "offset": [3, 16],
-        "dimension": [122, 30]
+        "dimension": [110, 50]
     }],
     "aods":[
         {"id": 0, "site_seperation": 2, "r": 4, "c": 40}
