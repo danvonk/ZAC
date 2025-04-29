@@ -290,7 +290,7 @@ class VertexMatchingPlacer:
         np_row_coo = np.array(list_row_coo)
         matrix = coo_matrix((np_data, (np_row_coo, np_col_coo)), shape=(len(list_Rydberg), len(list_gate)))
         # solve minimal matching by scipy
-        site_ind, gate_ind = min_weight_full_bipartite_matching(matrix)
+        site_ind, gate_ind = min_weight_full_bipartite_matching(matrix.tocsr())
         cost = matrix.toarray()[site_ind, gate_ind].sum()
         if self.print_detail:
             print("[INFO]               Gate placement cost: {}".format(cost))
@@ -499,7 +499,7 @@ class VertexMatchingPlacer:
         np_row_coo = np.array(list_row_coo)
         matrix = coo_matrix((np_data, (np_row_coo, np_col_coo)), shape=(len(list_storage), len(qubit_to_place)))
         # solve minimal matching by scipy
-        site_ind, qubit_ind = min_weight_full_bipartite_matching(matrix)
+        site_ind, qubit_ind = min_weight_full_bipartite_matching(matrix.tocsr())
         cost = matrix.toarray()[site_ind, qubit_ind].sum()
         if self.print_detail:
             print("[INFO]               Qubit placement cost: {}".format(cost))
